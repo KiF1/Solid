@@ -1,0 +1,22 @@
+//Ao instalar o typescript instala o comando (yarn add ts-node-dev -D)
+//Criamos o script: ("scripts": {
+//     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+// },)
+interface Course {
+    name: string;
+    //O (?) antres dos (:) quer dizer que éum dado opcional
+    duration?: number;
+    educator: string;
+}
+
+//A interface serve para desestruturar o Objeto e poder manipular os dados sem ser em ordem 
+
+class CreateCourseServices {
+    // {duration, educator, name}: Course => Desestruturamos o obj para que o possamos manipular de forma mais facil
+    // duration = 8 => éum valor caso se o valor de default não vir nada
+    execute({duration = 8, educator, name}: Course){
+        console.log(name, duration, educator)
+    }
+}
+
+export default new CreateCourseServices();
